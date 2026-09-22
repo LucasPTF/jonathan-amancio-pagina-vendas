@@ -233,6 +233,7 @@ function SectionHeading({ kicker, title, text }: { kicker: string; title: string
 
 function SalesPage({ variant }: { variant: HeroVariant }) {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
   const activeTestimonial = testimonials[testimonialIndex];
 
   useEffect(() => {
@@ -484,17 +485,29 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             <div className="video-testimonial-grid">
               {videoTestimonials.map((testimonial, index) => (
                 <Reveal className="video-testimonial-card" delay={index * 70} key={testimonial.name}>
-                  <a
-                    className="video-testimonial-media"
-                    href={`https://www.youtube.com/watch?v=${testimonial.youtubeId}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Assistir ao depoimento de ${testimonial.name} no YouTube`}
-                  >
-                    <img src={testimonial.image} alt={`Depoimento em vídeo de ${testimonial.name}`} loading="lazy" width="480" height="360" />
-                    <span className="play-button" aria-hidden="true"><PlayIcon /></span>
-                    <span className="video-label">Assistir depoimento</span>
-                  </a>
+                  <div className={`video-testimonial-media${activeVideoId === testimonial.youtubeId ? " is-playing" : ""}`}>
+                    {activeVideoId === testimonial.youtubeId ? (
+                      <iframe
+                        className="video-embed"
+                        src={`https://www.youtube-nocookie.com/embed/${testimonial.youtubeId}?autoplay=1&playsinline=1&rel=0`}
+                        title={`Depoimento de ${testimonial.name}`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <button
+                        className="video-play-trigger"
+                        type="button"
+                        onClick={() => setActiveVideoId(testimonial.youtubeId)}
+                        aria-label={`Reproduzir o depoimento de ${testimonial.name} nesta página`}
+                      >
+                        <img src={testimonial.image} alt="" loading="lazy" width="480" height="360" />
+                        <span className="play-button" aria-hidden="true"><PlayIcon /></span>
+                        <span className="video-label">Assistir depoimento</span>
+                      </button>
+                    )}
+                  </div>
                   <div className="video-testimonial-copy">
                     <blockquote>“{testimonial.text}”</blockquote>
                     <p><strong>{testimonial.name}</strong><span>{testimonial.role}</span></p>

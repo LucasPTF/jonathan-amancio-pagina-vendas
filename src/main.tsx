@@ -94,7 +94,35 @@ function CheckIcon() {
 }
 
 function Logo() {
-  return <img className="brand-logo" src="/assets/logo-imersao.png" alt="Imersão Natação da Harmonia" />;
+  return <img className="brand-logo" src="/assets/logo-imersao-transparente.png" alt="Imersão Natação da Harmonia" />;
+}
+
+function SkillMarquee() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsRunning(entry.isIntersecting),
+      { threshold: 0.05 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`marquee${isRunning ? " is-running" : ""}`} aria-label="Principais habilidades trabalhadas">
+      <div className="marquee-track" aria-hidden="true">
+        {[0, 1, 2, 3].map((group) => (
+          <div className="marquee-group" key={group}>
+            <span>Perceber</span><b>+</b><span>Analisar</span><b>+</b><span>Criar</span><b>+</b><span>Tocar</span><b>+</b>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function Cta({ label = "Quero viver a Imersão", className = "" }: { label?: string; className?: string }) {
@@ -230,12 +258,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               <div className="chord-note chord-note-two" aria-hidden="true">V7</div>
             </div>
           </div>
-          <div className="marquee" aria-label="Principais habilidades trabalhadas">
-            <div className="marquee-track">
-              <span>Perceber</span><b>+</b><span>Analisar</span><b>+</b><span>Criar</span><b>+</b><span>Tocar</span><b>+</b>
-              <span aria-hidden="true">Perceber</span><b aria-hidden="true">+</b><span aria-hidden="true">Analisar</span><b aria-hidden="true">+</b><span aria-hidden="true">Criar</span><b aria-hidden="true">+</b><span aria-hidden="true">Tocar</span><b aria-hidden="true">+</b>
-            </div>
-          </div>
+          <SkillMarquee />
         </section>
 
         <section className="recognition section-light">

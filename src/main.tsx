@@ -56,7 +56,7 @@ const testimonials = [
   },
   {
     name: "Paulo",
-    text: "Abre a mente da gente. Vinte anos, não sabia nada disso. Agora, quando você pega passo a passo, abre a mente.",
+    text: "Abre a mente da gente, cara. 20 anos, não sabia nada disso. Eu não conseguia assimilar. Agora, quando você pega ali, passo a passo, abre a mente.",
   },
   {
     name: "José Marcos",
@@ -65,6 +65,30 @@ const testimonials = [
   {
     name: "Pedro",
     text: "Comecei a sair do básico, da mera repetição, para começar a entender por que aquelas coisas funcionam daquele jeito.",
+  },
+];
+
+const videoTestimonials = [
+  {
+    name: "Adriano",
+    role: "aluno da Linguagem dos Acordes",
+    text: "Eu tocava feito papagaio, sem entender praticamente nada do que estava soando. (...) Consegui substituir os acordes ali. Tomada de decisão em meio segundo.",
+    image: "/assets/depoimento-adriano.jpg",
+    youtubeId: "Hg-LZiSeIL0",
+  },
+  {
+    name: "Paulo",
+    role: "20 anos tocando",
+    text: "Abre a mente da gente, cara. 20 anos, não sabia nada disso. Eu não conseguia assimilar. Agora, quando você pega ali, passo a passo, abre a mente.",
+    image: "/assets/depoimento-paulo.jpg",
+    youtubeId: "h_U-uGkvDPg",
+  },
+  {
+    name: "Daniel Romanelli",
+    role: "engenheiro de som e produtor musical",
+    text: "Eu ficava estudando aquilo cinco, seis, sete meses. Um mês, dois meses, três, no máximo, de aula com o Jonny, eu consegui aprender o assunto.",
+    image: "/assets/depoimento-daniel-romanelli.jpg",
+    youtubeId: "FJanyGVWdRI",
   },
 ];
 
@@ -81,6 +105,14 @@ function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M5 12h13M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8 5v14l11-7z" />
     </svg>
   );
 }
@@ -296,11 +328,14 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
                 text="Você não precisa acumular mais nomes antes de fazer música. Precisa viver a relação entre os acordes, ouvir o efeito de cada escolha e só então organizar o que percebeu."
               />
               <Reveal className="statement-box" delay={120}>
-                <span>Primeiro</span>
-                <strong>experiência musical</strong>
-                <i />
-                <span>Depois</span>
-                <strong>clareza teórica</strong>
+                <div className="statement-row">
+                  <span>Primeiro</span>
+                  <strong>experiência musical</strong>
+                </div>
+                <div className="statement-row">
+                  <span>Depois</span>
+                  <strong>clareza teórica</strong>
+                </div>
               </Reveal>
             </div>
           </div>
@@ -425,20 +460,48 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
         </section>
 
         <section className="proof section-light">
-          <div className="container proof-layout">
-            <SectionHeading kicker="A prova está no som" title="Quando o entendimento aparece, a relação com o instrumento muda." />
-            <Reveal className="testimonial-stage" key={testimonialIndex}>
-              <div className="quote-mark" aria-hidden="true">“</div>
-              <blockquote>{activeTestimonial.text}</blockquote>
-              <div className="testimonial-footer">
-                <strong>{activeTestimonial.name}</strong>
-                <span>{String(testimonialIndex + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}</span>
-              </div>
-              <div className="testimonial-controls">
-                <button type="button" onClick={() => changeTestimonial(-1)} aria-label="Depoimento anterior"><span aria-hidden="true">←</span></button>
-                <button type="button" onClick={() => changeTestimonial(1)} aria-label="Próximo depoimento"><span aria-hidden="true">→</span></button>
-              </div>
+          <div className="container">
+            <div className="proof-layout">
+              <SectionHeading kicker="A prova está no som" title="Quando o entendimento aparece, a relação com o instrumento muda." />
+              <Reveal className="testimonial-stage" key={testimonialIndex}>
+                <div className="quote-mark" aria-hidden="true">“</div>
+                <blockquote>{activeTestimonial.text}</blockquote>
+                <div className="testimonial-footer">
+                  <strong>{activeTestimonial.name}</strong>
+                  <span>{String(testimonialIndex + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}</span>
+                </div>
+                <div className="testimonial-controls">
+                  <button type="button" onClick={() => changeTestimonial(-1)} aria-label="Depoimento anterior"><span aria-hidden="true">←</span></button>
+                  <button type="button" onClick={() => changeTestimonial(1)} aria-label="Próximo depoimento"><span aria-hidden="true">→</span></button>
+                </div>
+              </Reveal>
+            </div>
+
+            <Reveal className="video-proof-intro">
+              <p className="kicker">Relatos em vídeo</p>
+              <h3>Veja e ouça quem já viveu essa mudança.</h3>
             </Reveal>
+            <div className="video-testimonial-grid">
+              {videoTestimonials.map((testimonial, index) => (
+                <Reveal className="video-testimonial-card" delay={index * 70} key={testimonial.name}>
+                  <a
+                    className="video-testimonial-media"
+                    href={`https://www.youtube.com/watch?v=${testimonial.youtubeId}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Assistir ao depoimento de ${testimonial.name} no YouTube`}
+                  >
+                    <img src={testimonial.image} alt={`Depoimento em vídeo de ${testimonial.name}`} loading="lazy" width="480" height="360" />
+                    <span className="play-button" aria-hidden="true"><PlayIcon /></span>
+                    <span className="video-label">Assistir depoimento</span>
+                  </a>
+                  <div className="video-testimonial-copy">
+                    <blockquote>“{testimonial.text}”</blockquote>
+                    <p><strong>{testimonial.name}</strong><span>{testimonial.role}</span></p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 

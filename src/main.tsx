@@ -16,7 +16,7 @@ const heroVariants: Record<string, HeroVariant> = {
     eyebrow: "Para quem já toca, mas ainda não entende a cifra que lê",
     title: "Saia do status de Papagaio.",
     description:
-      "Em uma manhã, aprenda a olhar para a cifra de uma canção e entender a função que cada acorde cumpre. Depois, prove que entendeu criando uma versão sua, com escolhas que você consegue explicar.",
+      "Em uma manhã, aprenda a olhar para a cifra de uma canção e entender para que cada acorde serve. Depois, prove que entendeu criando uma versão sua, com escolhas que você consegue explicar.",
   },
   "/a2": {
     eyebrow: "Para quem já estudou teoria e ainda não sente fluência",
@@ -33,12 +33,42 @@ const heroVariants: Record<string, HeroVariant> = {
 };
 
 const missions = [
-  ["01", "Escolha da Peça", "Você começa com uma canção real, não com uma lista solta de conceitos."],
-  ["02", "Estudo do Terreno", "Escuta, contexto e leitura revelam o que já está acontecendo na harmonia."],
-  ["03", "Fundação", "Você identifica as funções que sustentam o caminho harmônico."],
-  ["04", "Estrutura", "As relações entre os acordes deixam de parecer escolhas aleatórias."],
-  ["05", "Cobertura", "Você experimenta novas possibilidades sem perder a identidade da canção."],
-  ["06", "Acabamento", "Cada escolha é refinada até formar uma versão que você consegue defender."],
+  {
+    number: "01",
+    title: "Escolha da Peça",
+    concept: "Canção real",
+    text: "Você começa com uma canção real, não com uma lista solta de conceitos.",
+  },
+  {
+    number: "02",
+    title: "Estudo do Terreno",
+    concept: "Escuta, contexto e leitura",
+    text: "Escuta, contexto e leitura revelam o que já está acontecendo na harmonia.",
+  },
+  {
+    number: "03",
+    title: "Fundação",
+    concept: "Substituições",
+    text: "Você aprende a trocar um acorde por outro que serve para a mesma coisa e aprofunda o entendimento de para que cada acorde serve.",
+  },
+  {
+    number: "04",
+    title: "Estrutura",
+    concept: "Preparações",
+    text: "Você aprende a usar um acorde para chamar ou preparar o próximo, criando a sensação de que ele está chegando.",
+  },
+  {
+    number: "05",
+    title: "Cobertura",
+    concept: "Baixos e inversões",
+    text: "Você trabalha os baixos e as inversões para construir uma linha melódica na parte mais grave dos acordes.",
+  },
+  {
+    number: "06",
+    title: "Acabamento",
+    concept: "Extensões",
+    text: "Você usa segunda, quarta ou sexta para embelezar os acordes e compreender como essas extensões aparecem nas cifras.",
+  },
 ];
 
 const testimonials = [
@@ -302,7 +332,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               text="Tocar a sequência certa não é o mesmo que compreender a Linguagem dos Acordes. Quando a cifra muda, o tom muda ou aparece uma escolha fora do esperado, a segurança costuma desaparecer."
             />
             <div className="recognition-grid">
-              {["Você reconhece os acordes, mas ainda depende da cifra.", "Você estudou campo harmônico, escalas e funções, mas tudo parece separado.", "Você até improvisa mudanças, mas não consegue explicar por que algumas funcionam."].map((item, index) => (
+              {["Você reconhece os acordes, mas ainda depende da cifra.", "Você estudou campo harmônico e escalas, mas ainda não entende para que cada acorde serve.", "Você até improvisa mudanças, mas não consegue explicar por que algumas funcionam."].map((item, index) => (
                 <Reveal className="recognition-card" delay={index * 90} key={item}>
                   <span>0{index + 1}</span>
                   <p>{item}</p>
@@ -352,7 +382,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             <div className="pact-grid">
               {[
                 ["P", "Perceber", "Ouvir o movimento e reconhecer o efeito dos acordes."],
-                ["A", "Analisar", "Entender a função de cada escolha dentro da harmonia."],
+                ["A", "Analisar", "Entender para que cada acorde serve dentro da harmonia."],
                 ["C", "Criar", "Testar caminhos e construir uma versão com intenção."],
                 ["T", "Tocar", "Levar a decisão para o instrumento com fluidez."],
               ].map(([letter, title, text], index) => (
@@ -374,11 +404,20 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               </div>
               <div className="practice-arrow" aria-hidden="true"><span>Integra</span><ArrowIcon /></div>
               <div className="practice-side practice-integrated">
-                <span className="practice-label">Com a Natação da Harmonia</span>
-                <strong>1 rearmonização</strong>
+                <span className="practice-label">Natação da Harmonia = Rearmonização</span>
+                <strong>1 exercício, 4 habilidades</strong>
                 <div className="practice-seal">PACT completo</div>
-                <p>Um único exercício reúne as quatro habilidades e transforma prática em entendimento.</p>
+                <p>A rearmonização reúne as quatro habilidades e transforma prática em entendimento.</p>
               </div>
+            </Reveal>
+            <Reveal className="swimming-meaning" delay={220}>
+              <span>Por que esse nome?</span>
+              <div className="swimming-analogy">
+                <p><strong>Na natação,</strong> o corpo inteiro trabalha junto.</p>
+                <ArrowIcon />
+                <p><strong>Na rearmonização,</strong> Perceber, Analisar, Criar e Tocar trabalham juntos.</p>
+              </div>
+              <p>É por isso que Jonny chama a rearmonização de Natação da Harmonia.</p>
             </Reveal>
           </div>
         </section>
@@ -387,8 +426,8 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
           <div className="container">
             <SectionHeading
               kicker="Agora tudo se conecta"
-              title="Uma resposta para cada obstáculo."
-              text="O método avança em uma sequência clara: cada parte existe porque resolve o limite da anterior."
+              title="Uma coisa leva à outra."
+              text="Cada etapa resolve um problema e prepara a próxima. Leia o caminho da teoria até a prática."
             />
             <Reveal className="logic-map">
               {[
@@ -396,13 +435,13 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
                   number: "01",
                   obstacle: "Teoria isolada não cria linguagem.",
                   answer: "PACT",
-                  text: "Define o que precisa ser vivido: perceber, analisar, criar e tocar.",
+                  text: "Mostra o que precisa ser vivido: perceber, analisar, criar e tocar.",
                 },
                 {
                   number: "02",
                   obstacle: "Treinar cada habilidade separadamente fragmenta sua prática.",
                   answer: "Natação da Harmonia",
-                  text: "Usa a rearmonização para reunir as quatro habilidades em um só exercício.",
+                  text: "É a rearmonização usada para reunir as quatro habilidades em um só exercício.",
                 },
                 {
                   number: "03",
@@ -413,8 +452,9 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               ].map((step, index) => (
                 <article className="logic-step" style={{ "--step": index } as React.CSSProperties} key={step.number}>
                   <span className="logic-node" aria-hidden="true">{step.number}</span>
+                  {index < 2 && <span className="logic-link-label" aria-hidden="true">então</span>}
                   <p className="logic-obstacle">{step.obstacle}</p>
-                  <span className="logic-answer-label">Por isso existe</span>
+                  <span className="logic-answer-label">A resposta é</span>
                   <h3>{step.answer}</h3>
                   <p>{step.text}</p>
                 </article>
@@ -422,7 +462,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             </Reveal>
             <Reveal className="logic-result" delay={180}>
               <span>O resultado</span>
-              <strong>Você usa a rearmonização para ler cifras, entender funções e escolher acordes com intenção.</strong>
+              <strong>Você usa a rearmonização para ler cifras, entender para que cada acorde serve e escolher acordes com intenção.</strong>
             </Reveal>
           </div>
         </section>
@@ -435,11 +475,12 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               text="Você percorre a rearmonização do terreno ao acabamento, tomando decisões que fazem sentido para o que deseja comunicar."
             />
             <div className="mission-grid">
-              {missions.map(([number, title, text], index) => (
-                <Reveal className="mission-card" delay={(index % 3) * 70} key={number}>
-                  <div className="mission-top"><span>{number}</span><i /></div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
+              {missions.map((mission, index) => (
+                <Reveal className="mission-card" delay={(index % 3) * 70} key={mission.number}>
+                  <div className="mission-top"><span>{mission.number}</span><i /></div>
+                  {mission.concept && <span className="mission-concept">{mission.concept}</span>}
+                  <h3>{mission.title}</h3>
+                  <p>{mission.text}</p>
                 </Reveal>
               ))}
             </div>
@@ -462,7 +503,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             </div>
             <Reveal className="outcome-list">
               {[
-                "Olhar para uma cifra e enxergar funções, não apenas nomes.",
+                "Olhar para uma cifra e entender para que cada acorde serve, não apenas reconhecer nomes.",
                 "Substituir acordes com intenção e coerência harmônica.",
                 "Explicar suas escolhas sem depender de respostas prontas.",
                 "Usar seu repertório atual como base para criar algo próprio.",

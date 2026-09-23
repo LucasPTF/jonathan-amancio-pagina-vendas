@@ -16,25 +16,25 @@ const heroVariants: Record<string, HeroVariant> = {
     eyebrow: "Para quem já toca, mas ainda não entende a cifra que lê",
     title: "Saia do status de Papagaio.",
     description:
-      "Em uma manhã, aprenda a olhar para a cifra de uma música e entender o trabalho que cada acorde está fazendo ali. Depois, prove que entendeu criando uma versão sua, com escolhas que você consegue explicar.",
+      "Em uma manhã, aprenda a olhar para a cifra de uma canção e entender a função que cada acorde cumpre. Depois, prove que entendeu criando uma versão sua, com escolhas que você consegue explicar.",
   },
   "/a2": {
     eyebrow: "Para quem já estudou teoria e ainda não sente fluência",
     title: "Teoria não vem primeiro.",
     description:
-      "Você não aprendeu português decorando gramática antes de falar. Na Linguagem dos Acordes, primeiro você vive relações musicais. Depois, a teoria ganha significado. Um único exercício integra Perceber, Analisar, Criar e Tocar para transformar conceito em decisão musical.",
+      "Você não aprendeu português decorando gramática antes de falar. Na Linguagem dos Acordes, primeiro você vive as relações entre os acordes. Depois, a teoria ganha significado. Um único exercício integra Perceber, Analisar, Criar e Tocar para transformar conceito em decisão harmônica.",
   },
   "/a3": {
     eyebrow: "Para quem já toca há anos e não quer voltar ao zero",
     title: "Você não precisa recomeçar.",
     description:
-      "Se você já toca músicas inteiras, reconhece acordes e tem repertório, mas sente que decorou o idioma sem entendê-lo, a Imersão foi desenhada para esse ponto. Você usa o que já sabe para compreender a Linguagem dos Acordes por dentro.",
+      "Se você já toca canções inteiras, reconhece acordes e tem repertório, mas sente que decorou o idioma sem entendê-lo, a Imersão foi desenhada para esse ponto. Você usa o que já sabe para compreender a Linguagem dos Acordes por dentro.",
   },
 };
 
 const missions = [
-  ["01", "Escolha da Peça", "Você começa com uma música real, não com uma lista solta de conceitos."],
-  ["02", "Estudo do Terreno", "Escuta, contexto e leitura revelam o que já está acontecendo na música."],
+  ["01", "Escolha da Peça", "Você começa com uma canção real, não com uma lista solta de conceitos."],
+  ["02", "Estudo do Terreno", "Escuta, contexto e leitura revelam o que já está acontecendo na harmonia."],
   ["03", "Fundação", "Você identifica as funções que sustentam o caminho harmônico."],
   ["04", "Estrutura", "As relações entre os acordes deixam de parecer escolhas aleatórias."],
   ["05", "Cobertura", "Você experimenta novas possibilidades sem perder a identidade da canção."],
@@ -93,7 +93,7 @@ const videoTestimonials = [
 ];
 
 const faqs = [
-  ["Preciso dominar teoria musical?", "Não. A Imersão parte de relações musicais vividas na prática. O mais importante é já conseguir tocar músicas e reconhecer acordes."],
+  ["Preciso dominar teoria para acompanhar?", "Não. A Imersão parte de relações entre acordes vividas na prática. O mais importante é já conseguir tocar seu repertório e reconhecer acordes."],
   ["Para quais instrumentos funciona?", "O raciocínio harmônico se aplica a instrumentos capazes de trabalhar acordes, como violão, guitarra, teclado e piano."],
   ["A Imersão é ao vivo?", "Sim. O encontro acontece ao vivo no sábado, 26 de setembro, das 7h às 12h30."],
   ["Vou poder rever o conteúdo?", "Sim. A gravação fica disponível por 7 dias depois do encontro."],
@@ -284,7 +284,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
                 <img src="/assets/jonny-hero.jpg" alt="Jonny Cruz, professor da Imersão Natação da Harmonia" fetchPriority="high" />
                 <div className="portrait-caption">
                   <span>Com Jonny Cruz</span>
-                  <strong>Música entendida por dentro.</strong>
+                  <strong>Acordes entendidos por dentro.</strong>
                 </div>
               </div>
               <div className="chord-note chord-note-one" aria-hidden="true">IV</div>
@@ -299,7 +299,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             <SectionHeading
               kicker="O ponto que trava tantos músicos"
               title="Você sabe o nome do acorde. Mas sabe o que ele está fazendo?"
-              text="Tocar a sequência certa não é o mesmo que compreender a música. Quando a cifra muda, o tom muda ou aparece uma escolha fora do esperado, a segurança costuma desaparecer."
+              text="Tocar a sequência certa não é o mesmo que compreender a Linguagem dos Acordes. Quando a cifra muda, o tom muda ou aparece uma escolha fora do esperado, a segurança costuma desaparecer."
             />
             <div className="recognition-grid">
               {["Você reconhece os acordes, mas ainda depende da cifra.", "Você estudou campo harmônico, escalas e funções, mas tudo parece separado.", "Você até improvisa mudanças, mas não consegue explicar por que algumas funcionam."].map((item, index) => (
@@ -326,12 +326,12 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               <SectionHeading
                 kicker="Não é falta de teoria"
                 title="O problema costuma estar na ordem."
-                text="Você não precisa acumular mais nomes antes de fazer música. Precisa viver a relação entre os acordes, ouvir o efeito de cada escolha e só então organizar o que percebeu."
+                text="Você não precisa acumular mais nomes antes de entender os acordes. Precisa viver a relação entre eles, ouvir o efeito de cada escolha e só então organizar o que percebeu."
               />
               <Reveal className="statement-box" delay={120}>
                 <div className="statement-row">
                   <span>Primeiro</span>
-                  <strong>experiência musical</strong>
+                  <strong>experiência com os acordes</strong>
                 </div>
                 <div className="statement-row">
                   <span>Depois</span>
@@ -345,14 +345,14 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
         <section className="method section-green" id="metodo">
           <div className="container">
             <SectionHeading
-              kicker="Natação da Harmonia"
-              title="Um exercício. Quatro habilidades que trabalham juntas."
-              text="O PACT transforma a harmonia em um processo musical completo, em vez de mais uma coleção de regras para memorizar."
+              kicker="PACT"
+              title="Quatro habilidades. Separadas, elas custam tempo. Juntas, constroem entendimento."
+              text="Perceber, Analisar, Criar e Tocar são as habilidades que fazem você viver a Linguagem dos Acordes. Treinadas uma por vez, elas fragmentam a prática em exercícios diferentes."
             />
             <div className="pact-grid">
               {[
                 ["P", "Perceber", "Ouvir o movimento e reconhecer o efeito dos acordes."],
-                ["A", "Analisar", "Entender a função de cada escolha dentro da música."],
+                ["A", "Analisar", "Entender a função de cada escolha dentro da harmonia."],
                 ["C", "Criar", "Testar caminhos e construir uma versão com intenção."],
                 ["T", "Tocar", "Levar a decisão para o instrumento com fluidez."],
               ].map(([letter, title, text], index) => (
@@ -363,6 +363,67 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
                 </Reveal>
               ))}
             </div>
+            <Reveal className="practice-comparison" delay={160}>
+              <div className="practice-side practice-separated">
+                <span className="practice-label">Quando você separa</span>
+                <strong>4 habilidades</strong>
+                <div className="practice-pills" aria-hidden="true">
+                  <i>P</i><i>A</i><i>C</i><i>T</i>
+                </div>
+                <p>Exercícios diferentes, mais tempo para estudar e mais dificuldade para conectar tudo.</p>
+              </div>
+              <div className="practice-arrow" aria-hidden="true"><span>Integra</span><ArrowIcon /></div>
+              <div className="practice-side practice-integrated">
+                <span className="practice-label">Com a Natação da Harmonia</span>
+                <strong>1 rearmonização</strong>
+                <div className="practice-seal">PACT completo</div>
+                <p>Um único exercício reúne as quatro habilidades e transforma prática em entendimento.</p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="logic-section">
+          <div className="container">
+            <SectionHeading
+              kicker="Agora tudo se conecta"
+              title="Uma resposta para cada obstáculo."
+              text="O método avança em uma sequência clara: cada parte existe porque resolve o limite da anterior."
+            />
+            <Reveal className="logic-map">
+              {[
+                {
+                  number: "01",
+                  obstacle: "Teoria isolada não cria linguagem.",
+                  answer: "PACT",
+                  text: "Define o que precisa ser vivido: perceber, analisar, criar e tocar.",
+                },
+                {
+                  number: "02",
+                  obstacle: "Treinar cada habilidade separadamente fragmenta sua prática.",
+                  answer: "Natação da Harmonia",
+                  text: "Usa a rearmonização para reunir as quatro habilidades em um só exercício.",
+                },
+                {
+                  number: "03",
+                  obstacle: "Rearmonizar parece complexo demais.",
+                  answer: "Casa da Pesquisa Harmônica",
+                  text: "Transforma a rearmonização em seis missões claras, possíveis de aplicar ao seu repertório.",
+                },
+              ].map((step, index) => (
+                <article className="logic-step" style={{ "--step": index } as React.CSSProperties} key={step.number}>
+                  <span className="logic-node" aria-hidden="true">{step.number}</span>
+                  <p className="logic-obstacle">{step.obstacle}</p>
+                  <span className="logic-answer-label">Por isso existe</span>
+                  <h3>{step.answer}</h3>
+                  <p>{step.text}</p>
+                </article>
+              ))}
+            </Reveal>
+            <Reveal className="logic-result" delay={180}>
+              <span>O resultado</span>
+              <strong>Você usa a rearmonização para ler cifras, entender funções e escolher acordes com intenção.</strong>
+            </Reveal>
           </div>
         </section>
 
@@ -370,8 +431,8 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
           <div className="container">
             <SectionHeading
               kicker="Casa da Pesquisa Harmônica"
-              title="Seis missões para construir sua própria rearmonização."
-              text="Você acompanha a música do terreno ao acabamento, tomando decisões que fazem sentido para o que deseja comunicar."
+              title="O difícil ganha um caminho claro em seis missões."
+              text="Você percorre a rearmonização do terreno ao acabamento, tomando decisões que fazem sentido para o que deseja comunicar."
             />
             <div className="mission-grid">
               {missions.map(([number, title, text], index) => (
@@ -402,7 +463,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             <Reveal className="outcome-list">
               {[
                 "Olhar para uma cifra e enxergar funções, não apenas nomes.",
-                "Substituir acordes com intenção e coerência musical.",
+                "Substituir acordes com intenção e coerência harmônica.",
                 "Explicar suas escolhas sem depender de respostas prontas.",
                 "Usar seu repertório atual como base para criar algo próprio.",
               ].map((item) => <div key={item}><CheckIcon /><span>{item}</span></div>)}
@@ -441,13 +502,13 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
           <div className="container authority-grid">
             <Reveal className="authority-photo">
               <img src="/assets/jonny-professor.jpg" alt="Jonny Cruz tocando violão em seu estúdio" loading="lazy" />
-              <span>20+ anos ensinando música</span>
+              <span>20+ anos ensinando harmonia</span>
             </Reveal>
             <div className="authority-copy">
               <SectionHeading
                 kicker="Seu professor"
                 title="Jonny Cruz transforma teoria em linguagem viva."
-                text="Jonathan Amâncio, conhecido como Jonny Cruz, é professor de música, compositor e graduado em Música pela UEMG. Há mais de 20 anos, ajuda músicos a compreender o que tocam e a construir escolhas próprias."
+                text="Jonathan Amâncio, conhecido como Jonny Cruz, é professor, compositor e graduado em Música pela UEMG. Há mais de 20 anos, ajuda músicos a compreender o que tocam e a construir escolhas próprias."
               />
               <Reveal className="authority-details" delay={100}>
                 <p>Ele desenvolveu a Natação da Harmonia, a Casa da Pesquisa Harmônica e o PACT para integrar ouvido, raciocínio, criação e instrumento no mesmo processo.</p>
@@ -524,7 +585,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               <p className="kicker">Esta Imersão é para você se</p>
               <h2>Você já toca, mas quer compreender.</h2>
               {[
-                "Toca músicas inteiras e reconhece acordes.",
+                "Toca canções inteiras e reconhece acordes.",
                 "Sente que estudou assuntos isolados, sem conectá-los.",
                 "Quer criar e rearmonizar sem depender de tentativa aleatória.",
                 "Deseja entender a linguagem sem ser tratado como iniciante absoluto.",
@@ -534,7 +595,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               <p className="kicker">Talvez não seja o seu momento se</p>
               <h2>Você procura apenas mais fórmulas.</h2>
               {[
-                "Ainda não consegue tocar músicas completas no instrumento.",
+                "Ainda não consegue tocar canções completas no instrumento.",
                 "Quer atalhos sem escutar, analisar e praticar.",
                 "Prefere decorar respostas em vez de construir decisões.",
                 "Não pode participar nem rever a gravação na semana seguinte.",
@@ -613,7 +674,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             <Reveal>
               <Logo />
               <p className="kicker">Sábado, 26 de setembro</p>
-              <h2>Chega de repetir a música. Comece a compreendê-la.</h2>
+              <h2>Chega de apenas repetir acordes. Comece a entender a linguagem.</h2>
               <p>Uma manhã ao vivo para transformar cifra em linguagem, teoria em decisão e repertório em criação.</p>
               <Cta label="Garantir minha vaga por R$ 47" />
             </Reveal>

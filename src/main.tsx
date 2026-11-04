@@ -4,7 +4,7 @@ import "./styles.css";
 
 const CHECKOUT_URL = "https://pay.hotmart.com/T105036696M";
 const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/FfMn7jMMs5zETD1dKbaFPK";
-const EVENT_DATE = new Date("2026-11-07T07:00:00-03:00");
+const EVENT_DATE = new Date("2026-11-07T09:00:00-03:00");
 
 type HeroVariant = {
   eyebrow: string;
@@ -126,7 +126,7 @@ const videoTestimonials = [
 const faqs = [
   ["Preciso dominar teoria para acompanhar?", "Não. A Imersão parte de relações entre acordes vividas na prática. O mais importante é já conseguir tocar seu repertório e reconhecer acordes."],
   ["Para quais instrumentos funciona?", "O raciocínio harmônico se aplica a instrumentos capazes de trabalhar acordes, como violão, guitarra, teclado e piano."],
-  ["A Imersão é ao vivo?", "Sim. O encontro acontece ao vivo no sábado, 7 de novembro, das 7h às 12h30."],
+  ["A Imersão é ao vivo?", "Sim. O encontro acontece ao vivo no sábado, 7 de novembro, das 9h às 12h30."],
   ["Vou poder rever o conteúdo?", "Sim. A gravação fica disponível por 7 dias depois do encontro."],
   ["Como recebo o acesso?", "Assim que a compra for confirmada, você recebe o acesso ao grupo no WhatsApp e todas as instruções da Imersão."],
   ["Existe garantia?", "Sim. Você tem 7 dias depois do evento para pedir o reembolso integral pela própria plataforma, sem precisar justificar."],
@@ -302,7 +302,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
               <p className="hero-description">{variant.description}</p>
               <div className="event-line">
                 <span>Sábado, 7 de novembro</span>
-                <span>7h às 12h30</span>
+                <span>9h às 12h30</span>
                 <span>Ao vivo</span>
               </div>
               <div className="hero-actions">
@@ -518,7 +518,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             <SectionHeading kicker="Tudo o que acompanha sua vaga" title="Uma manhã de imersão. Um ano para continuar desarranjando." />
             <div className="included-grid">
               {[
-                ["01", "Imersão ao vivo", "Encontro no sábado, 7 de novembro, das 7h às 12h30."],
+                ["01", "Imersão ao vivo", "Encontro no sábado, 7 de novembro, das 9h às 12h30."],
                 ["02", "Gravação por 7 dias", "Reveja o encontro no seu ritmo durante a semana seguinte."],
                 ["03", "Grupo no WhatsApp", "Acompanhamento e orientações durante 7 dias."],
                 ["04", "Kit Aceleração", "E-book e Atlas NDH para apoiar sua prática."],
@@ -674,7 +674,7 @@ function SalesPage({ variant }: { variant: HeroVariant }) {
             <Reveal className="deadline-card">
               <div>
                 <p>A Imersão começa em</p>
-                <h3>Sábado, 7 de novembro, às 7h</h3>
+                <h3>Sábado, 7 de novembro, às 9h</h3>
                 <span>Inscrições até sexta-feira, 6 de novembro, às 23h59.</span>
               </div>
               <Countdown />
@@ -755,7 +755,7 @@ function ThankYouPage() {
           <div className="thanks-steps">
             <div><span>01</span><p><strong>Confira seu e-mail</strong>Procure a confirmação enviada pela Hotmart.</p></div>
             <div><span>02</span><p><strong>Entre no grupo</strong>É lá que você recebe as instruções da Imersão.</p></div>
-            <div><span>03</span><p><strong>Reserve a manhã</strong>Sábado, 7 de novembro, das 7h às 12h30.</p></div>
+            <div><span>03</span><p><strong>Reserve a manhã</strong>Sábado, 7 de novembro, das 9h às 12h30.</p></div>
           </div>
           <a className="button button-dark" href={WHATSAPP_GROUP_URL} target="_blank" rel="noreferrer"><span>Entrar no grupo do WhatsApp</span><ArrowIcon /></a>
         </Reveal>
